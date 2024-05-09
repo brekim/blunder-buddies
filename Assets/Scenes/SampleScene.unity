@@ -467,6 +467,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 720
   jumpSpeed: 4
+  jumpHorizontalSpeed: 3
   jumpButtonGracePeriod: 0.2
 --- !u!143 &1000334972
 CharacterController:

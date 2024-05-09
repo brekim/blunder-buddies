@@ -44,7 +44,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -99,6 +99,9 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips:
   - e2b18bc49cf9dcd4ab94d594bb0425bf
+  - e79145535fae9a94abf3f05a547ece58
+  - f8278fcdffff9b44284495e57e22552a
+  - fc016e568f6b968438f4e3c166bdb5cc
   - cb453b4649ea77744a19cf50f2a8e745
   importAnimation: 1
   humanDescription:
@@ -115,13 +118,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

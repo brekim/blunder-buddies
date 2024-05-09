@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float originalStepOffset;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
+    private bool isJumping;
+    private bool isGrounded; 
 
     // Start is called before the first frame update
     void Start()
@@ -54,10 +56,17 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.25f;
+            animator.SetBool("IsGrounded", true);
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+            isJumping = false;
+            animator.SetBool("IsFalling", false);
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
                 ySpeed = jumpSpeed;
+                animator.SetBool("IsJumping", true);
+                isJumping = true;
                 jumpButtonPressedTime = null;
                 lastGroundedTime = null;
             }
@@ -65,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             characterController.stepOffset = 0;
+            animator.SetBool("IsGrounded", false);
+            isGrounded = false;
+
+            if ((isJumping && ySpeed < 0) || ySpeed < -2)
+            {
+                animator.SetBool("IsFalling", true);
+            }
         }
 
         Vector3 velocity = movementDirection * magnitude;
