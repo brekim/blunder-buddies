@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed;
     public float jumpButtonGracePeriod;
 
+    private Animator animator;
     private CharacterController characterController;
     private float ySpeed;
     private float originalStepOffset;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator = GetComponent<Animator>();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -71,8 +73,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (movementDirection != Vector3.zero)
         {
+            animator.SetBool("IsMoving", false);
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", true);
         }
     }
 }
